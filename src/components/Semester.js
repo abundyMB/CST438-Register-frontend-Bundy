@@ -42,13 +42,13 @@ class Semester extends Component {
               position: toast.POSITION.BOTTOM_LEFT
           });
         } else {
-          toast.error("Error when adding. Either email is in use, or email/student name are null", {
+          toast.error("Error when adding.", {
           position: toast.POSITION.BOTTOM_LEFT
           });
         console.error('Post http status =' + res.status);
         }})
       .catch(err => {
-        toast.error("Error when adding. Either email is in use, or email/student name are null", {
+        toast.error("Error when adding.", {
               position: toast.POSITION.BOTTOM_LEFT
           });
           console.error(err);
