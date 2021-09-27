@@ -8,11 +8,11 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import 'react-toastify/dist/ReactToastify.css';
 
-// properties addCoure is required, function called when Add clicked.
+// properties addStudent is required, function called when Add clicked.
 class AddStudent extends Component {
     constructor(props) {
         super(props);
-        this.state = {open: false, student:{ name: null, email: null, statusCode: 0, status: "Good"}};
+        this.state = {open: false, student:{ name: null, email: null, statusCode: 0, status: "CLEAR"}};
     };
 
     handleClickOpen = () => {
@@ -28,7 +28,7 @@ class AddStudent extends Component {
       this.setState({student:{name: event.target.value,
       email: this.state.student.email,
       statusCode: 0,
-      status: "Good"}});
+      status: "CLEAR"}});
     }
 
     handleChangeEmail = (event) => {
@@ -36,7 +36,7 @@ class AddStudent extends Component {
           this.setState({student:{name: this.state.student.name,
           email: event.target.value,
           statusCode: 0,
-          status: "Good"}});
+          status: "CLEAR"}});
     }
 
     // Save student and close modal form
