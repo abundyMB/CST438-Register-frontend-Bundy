@@ -24,7 +24,6 @@ class AddStudent extends Component {
     };
 
     handleChangeName = (event) => {
-        
       this.setState({student:{name: event.target.value,
       email: this.state.student.email,
       statusCode: 0,
@@ -32,7 +31,6 @@ class AddStudent extends Component {
     }
 
     handleChangeEmail = (event) => {
-        
           this.setState({student:{name: this.state.student.name,
           email: event.target.value,
           statusCode: 0,
@@ -40,7 +38,7 @@ class AddStudent extends Component {
     }
 
     // Save student and close modal form
-    addStudent = () => {
+    handleAdd = () => {
       this.props.addStudent(this.state.student);
       this.handleClose();
       this.setState({student:{name: null, email: null}})
@@ -60,7 +58,7 @@ class AddStudent extends Component {
                   </DialogContent>
                   <DialogActions>
                     <Button color="secondary" onClick={this.handleClose}>Cancel</Button>
-                    <Button color="primary" onClick={this.addStudent}>Add</Button>
+                    <Button color="primary" onClick={this.handleAdd}>Add</Button>
                   </DialogActions>
                 </Dialog>      
             </div>

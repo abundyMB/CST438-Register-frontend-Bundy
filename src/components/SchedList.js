@@ -39,7 +39,7 @@ class SchedList extends Component {
       {  
         method: 'GET', 
         headers: { 'X-XSRF-TOKEN': token }
-      } )
+      })
     .then((response) => {
       console.log("FETCH RESP:"+response);
       return response.json();}) 
@@ -182,11 +182,10 @@ class SchedList extends Component {
 //  props are accessed via props.location 
 SchedList.propTypes = {
   location: (properties, propertyName, componentName) => {
-       if ( (!Number.isInteger(properties.location.year)) || !(typeof properties.location.semester === 'string') || (properties.location.semester instanceof String )) {
+       if ((!Number.isInteger(properties.location.year)) || !(typeof properties.location.semester === 'string') || (properties.location.semester instanceof String )) {
          return new Error('AddCourse: Missing or invalid property year or semester.');
        }
     }
-  }
+}
 
- 
 export default SchedList;
