@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # CST438 Software Engineering California State University Monterey Bay
 # Student Schedule project Front End application
 
@@ -72,3 +73,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+=======
+# CST438-Register-frontend-Bundy
+>>>>>>> branch 'master' of https://github.com/abundyMB/CST438-Register-frontend-Bundy.git
