@@ -95,7 +95,6 @@ class Semester extends Component {
                  variant="outlined" color="primary" style={{margin: 10}}>
                  Get Schedule
                </Button>
-               <Button> 
                <Button id="addStudent"> 
                  <AddStudent addStudent = {this.addStudent} />
                </Button>
