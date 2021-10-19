@@ -13,7 +13,6 @@ import {SEMESTER_LIST} from '../constants.js'
 import Cookies from 'js-cookie';
 import {SERVER_URL} from '../constants.js'
 import AddStudent from './AddStudent';
-
 // user selects from a list of  (year, semester) values
 class Semester extends Component {
     constructor(props) {
@@ -42,19 +41,18 @@ class Semester extends Component {
               position: toast.POSITION.BOTTOM_LEFT
           });
         } else {
-          toast.error("Error when adding.", {
+          toast.error("Error adding student. Ensure email is valid and not in use and student name is not null.", {
           position: toast.POSITION.BOTTOM_LEFT
           });
         console.error('Post http status =' + res.status);
         }})
       .catch(err => {
-        toast.error("Error when adding.", {
+        toast.error("Error adding student. Ensure email is valid and not in use and student name is not null", {
               position: toast.POSITION.BOTTOM_LEFT
           });
           console.error(err);
         })
     }
-
   render() {    
       const icolumns = [
       {
@@ -94,13 +92,14 @@ class Semester extends Component {
                       to={{pathname:'/schedule' , 
                       year:SEMESTER_LIST[this.state.selected].year, 
                       semester:SEMESTER_LIST[this.state.selected].name}} 
-                variant="outlined" color="primary" style={{margin: 10}}>
-                Get Schedule
-              </Button>
-              <Button> 
-                <AddStudent addStudent = {this.addStudent} />
-              </Button>
-          </div>
+                 variant="outlined" color="primary" style={{margin: 10}}>
+                 Get Schedule
+               </Button>
+               <Button> 
+               <Button id="addStudent"> 
+                 <AddStudent addStudent = {this.addStudent} />
+               </Button>
+           </div>
               <ToastContainer autoClose={9000} />   
       </div>
     )
