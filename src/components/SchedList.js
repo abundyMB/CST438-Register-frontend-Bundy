@@ -35,11 +35,12 @@ class SchedList extends Component {
     console.log("SchedList.fetchCourses");
     const token = Cookies.get('XSRF-TOKEN');
     
-    fetch(`${SERVER_URL}/schedule?year=${this.props.location.year}&semester=${this.props.location.semester}`, 
+    fetch(`${SERVER_URL}schedule?year=${this.props.location.year}&semester=${this.props.location.semester}`, 
       {  
         method: 'GET', 
-        headers: { 'X-XSRF-TOKEN': token }
-      })
+        headers: { 'X-XSRF-TOKEN': token },
+        credentials: 'include'
+      } )
     .then((response) => {
       console.log("FETCH RESP:"+response);
       return response.json();}) 
@@ -68,10 +69,11 @@ class SchedList extends Component {
     if (window.confirm('Are you sure you want to drop the course?')) {
       const token = Cookies.get('XSRF-TOKEN');
       
-      fetch(`${SERVER_URL}/schedule/${id}`,
+      fetch(`${SERVER_URL}schedule/${id}`,
         {
           method: 'DELETE',
-          headers: { 'X-XSRF-TOKEN': token }
+          headers: { 'X-XSRF-TOKEN': token },
+          credentials: 'include'
         })
     .then(res => {
         if (res.ok) {
@@ -98,11 +100,12 @@ class SchedList extends Component {
   addCourse = (course) => {
     const token = Cookies.get('XSRF-TOKEN');
  
-    fetch(`${SERVER_URL}/schedule`,
+    fetch(`${SERVER_URL}schedule`,
       { 
         method: 'POST', 
         headers: { 'Content-Type': 'application/json',
-                   'X-XSRF-TOKEN': token  }, 
+                   'X-XSRF-TOKEN': token  },
+                   credentials: 'include',
         body: JSON.stringify(course)
       })
     .then(res => {
@@ -182,10 +185,10 @@ class SchedList extends Component {
 //  props are accessed via props.location 
 SchedList.propTypes = {
   location: (properties, propertyName, componentName) => {
-       if ((!Number.isInteger(properties.location.year)) || !(typeof properties.location.semester === 'string') || (properties.location.semester instanceof String )) {
+       if ( (!Number.isInteger(properties.location.year)) || !(typeof properties.location.semester === 'string') || (properties.location.semester instanceof String )) {
          return new Error('AddCourse: Missing or invalid property year or semester.');
        }
     }
-}
+  }
 
 export default SchedList;
